@@ -1,0 +1,4 @@
+modelscope
+diffusers
+transformers==4.25.1
+accelerate
