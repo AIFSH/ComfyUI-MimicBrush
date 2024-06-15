@@ -17,7 +17,7 @@ pip install -r requirements.txt
 
 
 ## Tutorial
-- [Demo]()
+- [Demo](https://www.bilibili.com/video/BV144421Q7En)
 
 ## WeChat Group
 <div>
