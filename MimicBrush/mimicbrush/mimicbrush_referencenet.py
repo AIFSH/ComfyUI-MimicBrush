@@ -55,7 +55,13 @@ class MimicBrush_RefNet:
         print('=== load depth_guider ===')
         self.referencenet.load_state_dict(state_dict["referencenet"])
         print('=== load referencenet ===')
-        self.image_encoder.load_state_dict(state_dict["image_encoder"])
+        try:
+            self.image_encoder.load_state_dict(state_dict["image_encoder"])
+        except:
+            state_dict["image_encoder"].pop("vision_model.embeddings.position_ids")
+            print("""drop "vision_model.embeddings.position_ids" """)
+            self.image_encoder.load_state_dict(state_dict["image_encoder"])
+        # self.image_encoder.load_state_dict(state_dict["image_encoder"])
         print('=== load image_encoder ===')
         if "unet" in state_dict.keys():
             self.pipe.unet.load_state_dict(state_dict["unet"])
